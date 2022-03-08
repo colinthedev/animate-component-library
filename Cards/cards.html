@@ -14,81 +14,188 @@
 
     <title>Card Components</title>
 </head>
-<body>
-    
+<body class="main-container">
+
+<!-- Card Zoom Reveal Text Animation  -->
     <style>
 
-    .card {
-        position: relative;
-        display: flex;
-        height: 360px;
-        width: 280px;
-        background: #fff;
-        border-radius: 15px;
-        overflow: hidden;
-    }
+        .card-animation {
+            position: relative;
+            display: flex;
+            height: 360px;
+            width: 280px;
+            background: #fff;
+            border-radius: 15px;
+            overflow: hidden;
+        }
 
-    /* Background image */
-    .card-img {
-        position: absolute;
-		top: 0;
-		left: 0;
-		height: 100%;
-		width: 100%;
-        object-fit: cover;
-		border-radius: 15px;
+        /* Background image */
+        .card-img-animation {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            border-radius: 15px;
 
-        transition: all 0.4s ease-in-out;
-    }
+            transition: all 0.4s ease-in-out;
+        }
 
-    /* Card info hidden until hover */
-	.card-info {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        z-index: 200;
-        color: #000;
-        padding: 10px;
-        margin-top: auto;
-        background-color: #fff;
-        border: 1px solid #fff;
-        border-radius: 10px;
-        opacity: 0;
+        /* Card info hidden until hover */
+        .card-info-animation {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            z-index: 200;
+            color: #000;
+            padding: 10px;
+            margin-top: auto;
+            background-color: #fff;
+            border: 1px solid #fff;
+            border-radius: 10px;
+            opacity: 0;
 
-        transform: translateY(75px);
-        transition: all 0.5s ease-in-out;
-    }
+            transform: translateY(75px);
+            transition: all 0.5s ease-in-out;
+        }
 
-    /* On card hover - zoom in on photo */
-    .card:hover .card-img {
-        transform: scale(1.25);
-    }
+        /* On card hover - zoom in on photo */
+        .card-animation:hover .card-img-animation {
+            transform: scale(1.25);
+        }
 
-    /* On card hover - show text box */
-    .card:hover .card-info {
-        opacity: 1;
-        transform: translateY(0px);
-    }
+        /* On card hover - show text box */
+        .card-animation:hover .card-info-animation {
+            opacity: 1;
+            transform: translateY(0px);
+        }
 
-    button {
-        color: #fff;
-        background: #000;
-        border: 1px solid #fff;
-        border-radius: 10px;
-        padding: 5px;
-    }
+        button {
+            color: #fff;
+            background: #000;
+            border: 1px solid #fff;
+            border-radius: 10px;
+            padding: 5px;
+        }
     
     </style>
 
-    <div class="card">
-        <img src="img.jpeg" alt="" class="card-img">
-        <div class="card-info">
+    <h3 style="color: #000">Card Zoom Reveal Text Animation (VS-19)</h3>
+    <div class="card-animation mb-5">
+        <img src="img.jpeg" alt="" class="card-img-animation">
+        <div class="card-info-animation">
             <h3>Mountain</h3>
             <p>Lorem Ipsum is simply dummy text from the printing and typeseting industry
             button Read More</p>
             <button>Read More</button>
         </div>
     </div>
+<!-- Card Zoom Reveal Text Animation  -->
+
+
+<!-- Card Zoom Animation  -->
+    <style>
+
+        .card-animation {
+            position: relative;
+            display: flex;
+            height: 360px;
+            width: 280px;
+            background: #fff;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        /* Background image */
+        .card-img-animation {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            border-radius: 15px;
+
+            transition: all 0.4s ease-in-out;
+        }
+
+        /* On card hover - zoom in on photo */
+        .card-animation:hover .card-img-animation {
+            transform: scale(1.25);
+        }
+    
+    </style>
+
+    <h3 style="color: #000">Card Zoom Animation (VS-97)</h3>
+    <div class="card-animation mb-5">
+        <img src="img.jpeg" alt="" class="card-img-animation">
+    </div>
+<!-- Card Zoom Animation  -->
+
+
+<!--  Img Grayscale Animation  -->
+    <style>
+
+        .img-wrapper-animation {
+            display: grid;
+            gap: 4px;
+            grid-template-columns: repeat(3, 100px);
+        }
+
+        /* When the container is hovered apply a grayscale to all elements except the one being hovered */
+        .img-wrapper-animation:hover .img-animation:not(:hover) {
+            filter: grayscale(100%);
+        }
+
+        .img-wrapper-animation::after {
+            background-color: rgba(#000, 0.5);
+        }
+
+        .img-animation {
+            position: relative;
+            cursor: pointer;
+            transition: .3s;
+        }
+
+        .img-animation::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(#000, 0);
+            transition: .3s;
+        }
+
+        .img-animation > img {
+            display: block;
+            width: 100%;
+            max-width: 100%;
+        }
+
+        @media only screen and (min-width: 30rem) {
+            .img-wrapper-animation {
+                grid-template-columns: repeat(3, 150px);
+            }
+        }
+
+    </style>
+
+    <h3>Image Grayscale Animation (VS-137)</h3>
+    <div class="img-wrapper-animation mb-5" role="radiogroup">
+        <div class="img-animation" role="radio" aria-checked="false" tabindex="-1" aria-label="Select image one">
+            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/cdn-36_img-1.jpg" alt="Image description">
+        </div>
+        <div class="img-animation" role="radio" aria-checked="false" tabindex="-1" aria-label="Select image two">
+            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/cdn-36_img-2.jpg" alt="Image description">
+        </div>
+        <div class="img-animation" role="radio" aria-checked="false" tabindex="-1" aria-label="Select image three">
+            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/cdn-36_img-3.jpg" alt="Image description">
+        </div>
+    </div>
+<!--  Img Grayscale Animation  -->
 
 </body>
 </html>
