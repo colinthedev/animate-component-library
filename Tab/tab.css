@@ -1,0 +1,52 @@
+.container {
+    overflow: hidden;
+}
+
+.headerContainer {
+    background-color: #03243F;
+    color: #fff;
+    margin-bottom: 2px;
+}
+
+.btnContainer {
+    display: flex;
+    margin-bottom: -2px;
+}
+  
+.filterItem {
+    float: left;
+    background-color: #F5F2F1;
+    color: #03243F;
+    width: inherit;
+    text-align: left;
+    padding: 50px;
+    display: none; /* Hidden by default */
+  }
+  
+  /* The "show" class is added to the filtered elements */
+  .show {
+    display: block;
+  }
+  
+  /* Style the buttons */
+  .filterBtns {
+    border: none;
+    outline: none;
+    padding: 12px 16px;
+    background-color: #03243F;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  /* Add a light grey background on mouse-over */
+  .filterBtns:hover {
+    background-color: #F5F2F1;
+    color: #03243F;
+  }
+  
+  /* Add a dark background to the active button */
+  .filterBtns.active {
+    background-color: #F5F2F1;
+    color: #03243F;
+    text-decoration: underline;
+  }
