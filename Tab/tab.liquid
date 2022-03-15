@@ -1,0 +1,137 @@
+{% if section.blocks.size > 0 %}
+  <div class="bg-blue">
+    <div class="container pt-5">
+      <div class="row justify-content-center align-items-center">
+        {% if section.settings.tab-group-heading != blank %}
+          <div class="col-12">
+            <h2 class="mb-4 text-center text-white">{{ section.settings.tab-group-heading }}</h2>
+          </div>
+        {% endif %}
+            <div id="{{ section.settings.tab-group-heading | handleize }}" class="btnContainer">
+            {% assign active_tab_style = "active" %}
+            {% for block in section.blocks %}
+                {% if forloop.index != 1 %}
+                {% assign active_tab_style = "" %}
+                {% endif %}
+                <button data-target="#{{ block.settings.tab-heading | handleize }}-item" class="filterBtns {{ active_tab_style }}"> {{ block.settings.tab-heading }}</button>
+            {% endfor %}
+            </div>
+      </div>
+    </div>
+  </div>
+  <div class="container mb-5">
+    <div class="row">
+      <div class="col-12">
+        <div class="tab-content" id="myTabContent">
+          {% assign active_tab_content = "show" %}
+          {% for block in section.blocks %}
+            {% if forloop.index != 1 %}
+              {% assign active_tab_content = "" %}
+            {% endif %}
+            <div id="{{ block.settings.tab-heading | handleize }}-item" class="filterItem {{ active_tab_content }} " {{ block.shopify_attributes }}>
+                <h2> {{ block.settings.tab-heading }}</h2>
+                <p>{{ block.settings.tab-description }}</p>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+{% endif %}
+
+{% javascript %}
+
+let newElement = document.getElementsByClassName("filterBtns");
+let filterBtns = Array.from(newElement);
+let elementArr = document.getElementsByClassName("filterItem");
+let btnContent = Array.from(elementArr)
+
+filterBtns.forEach(el => {
+//  console.log(el)
+  el.addEventListener('click', function(){
+    // console.log(this);
+    filterBtns.forEach(el => el.classList.remove('active'));
+    this.classList.add("active");
+    btnContent.forEach(el => el.classList.remove('show'));
+    let y = document.querySelector(this.dataset.target);
+    // console.log(y.classList)
+    y.classList.add("show");
+  })
+})
+
+{% endjavascript %}
+
+{% schema %}
+{
+  "name": {
+    "en": "Custom Tab Group 2"
+  },
+  "class": "custom-section-tab-group",
+  "settings": [
+    {
+      "type": "text",
+      "id": "tab-group-heading",
+      "label": "Heading",
+      "default": "Heading Text"
+    }
+  ],
+    "blocks": [
+      {
+        "type": "tab",
+        "name": {
+          "en": "Tab"
+        },
+        "settings": [
+          {
+            "type": "text",
+            "id": "tab-heading",
+            "label": "Heading",
+            "default": "Heading Text"
+          },
+          {
+            "type": "richtext",
+            "id": "tab-description",
+            "label": "Description"
+          }
+        ]
+      }
+    ],
+  "presets": [
+    {
+      "name": {
+        "en": "Custom Tab Group 2"
+      },
+      "category": {
+        "en": "Text"
+      },
+      "blocks": [
+        {
+          "type": "tab"
+        },
+        {
+          "type": "tab"
+        },
+        {
+          "type": "tab"
+        },
+        {
+          "type": "tab"
+        }
+      ]
+    }
+  ],
+  "templates": [
+    "index",
+    "collection",
+    "list-collections",
+    "blog",
+    "article",
+    "page",
+    "password",
+    "404",
+    "cart",
+    "search",
+    "product"
+  ]
+}
+{% endschema %}
