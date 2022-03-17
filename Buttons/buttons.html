@@ -353,5 +353,117 @@
 <!-- Button Zoom Animate -->
 
 
+    <style>
+        .shimmer {
+            color: white;
+
+            border-radius: 50rem;
+            padding-left: 1.5rem;
+            padding-right: 1.5rem;
+            text-transform: uppercase;
+            display: inline-block;
+            padding: 0.375rem 2rem;
+            font-size: 1rem;
+            
+            text-decoration: none;
+            text-align: center;
+            background: #DB2828 -webkit-gradient(linear, 0 0, 0 0, from(#DB2828), color-stop(0.5, #ffffff), to(#DB2828));
+            /* background: -webkit-gradient(linear, left top, right bottom, from(#c7092a), to(#c7092a), color-stop(0, #ffffff4f)); */
+            background-size: 5px 100%;
+            animation-name: shimmer;
+            animation-duration: 2.5s;
+            animation-iteration-count: infinite;
+            background-repeat: no-repeat;
+            background-position: 0 0;
+            background-color: #c7092a;
+        }
+        
+        @keyframes shimmer {
+            0% {
+                background-position: 0%;
+            }
+            100% {
+                background-position: 100%;
+            }
+        }
+
+    </style>
+    <div class="wrapper">
+        <a class="mb-3 shimmer">Apply Now</a>
+    </div>
+
+
+    <style>
+
+        .icon {
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+            
+            margin: 25px 0 25px 25px;
+            border-radius: 5px;
+            color: #fff;
+            background-color: #DB2828; 
+            text-decoration: none;
+            text-align: center;
+            line-height: 50px;
+            font-size: 12px;
+            font-family: sans-serif;
+        }
+
+        /**
+        * The "shine" element
+        */
+
+        .icon:after {
+            animation: shine 6s ease-in-out  infinite;
+            animation-fill-mode: forwards;  
+            content: "";
+            position: absolute;
+            top: -110%;
+            left: -310%;
+            width: 400%;
+            height: 100%;
+            opacity: 0;
+            transform: rotate(30deg);
+            
+            background: rgba(255, 255, 255, 0.13);
+            background: linear-gradient(
+                to right, 
+                rgba(255, 255, 255, 0.13) 0%,
+                rgba(255, 255, 255, 0.13) 77%,
+                rgba(255, 255, 255, 0.5) 92%,
+                rgba(255, 255, 255, 0.0) 100%
+            );
+        }
+
+        /* Hover state - trigger effect */
+
+        /* Active state */
+        .icon:after {
+            opacity: 0;
+        }
+
+        @keyframes shine {
+            10% {
+                opacity: 1;
+                top: -30%;
+                left: -30%;
+                transition-property: left, top, opacity;
+                transition-duration: 2s, 2s, 1s;
+                transition-timing-function: ease;
+            }
+            100% {
+                opacity: 0;
+                top: -30%;
+                left: -30%;
+                transition-property: left, top, opacity;
+            }
+        }
+    </style>
+
+    <a href="#" class="icon">Apply Now</a>
+
+
 </body>
 </html>
