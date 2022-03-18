@@ -172,6 +172,7 @@
             right: 100%;
             bottom: 2px;
             background: #e6620b;
+            backdrop-filter: blur(1005px);
             height: 1px;
 
             transition: all .40s ease-in-out;
@@ -367,9 +368,9 @@
             
             text-decoration: none;
             text-align: center;
-            background: #DB2828 -webkit-gradient(linear, 0 0, 0 0, from(#DB2828), color-stop(0.5, #ffffff), to(#DB2828));
+            background: #DB2828 -webkit-gradient(linear, 0 0, 0 0, from(#DB2828), color-stop(.05, #7070701c), to(#d6d1d110));
             /* background: -webkit-gradient(linear, left top, right bottom, from(#c7092a), to(#c7092a), color-stop(0, #ffffff4f)); */
-            background-size: 5px 100%;
+            background-size: 25px 100%;
             animation-name: shimmer;
             animation-duration: 2.5s;
             animation-iteration-count: infinite;
@@ -380,10 +381,10 @@
         
         @keyframes shimmer {
             0% {
-                background-position: 0%;
+                background-position: -50%;
             }
             100% {
-                background-position: 100%;
+                background-position: 150%;
             }
         }
 
