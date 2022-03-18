@@ -467,8 +467,12 @@
     <style>
 
             .test-shine {
-                width: 38px;
-                height: 58px;
+                min-width: 158px;
+                min-height: 38px;
+                border-radius: 50rem;
+                padding-left: 1.5rem;
+                padding-right: 1.5rem;
+                text-transform: uppercase;
                 background-color: #c7092a;
                 color: #fff;
                 background-repeat: no-repeat;
@@ -476,10 +480,15 @@
                 position:relative; 
                 /* !! important class !!*/
                 margin: 25px 0 25px 25px;
-                border-radius: 5px;
-
                 overflow: hidden;
                 display: inline-block;
+                font-family: "Montserrat", sans-serif;
+                font-size: 1rem;
+                font-weight: 400;
+            }
+
+            .test-shine:hover {
+                color: #fff;
             }
 
             .test-shine:after {
@@ -518,6 +527,7 @@
 
     </style>
 
+    <p><a class="text-decoration-none d-flex align-items-center justify-content-center test-shine" href="">Apply Now</a></p>
     <button class="test-shine">Apply Now</button>
 
 </body>
